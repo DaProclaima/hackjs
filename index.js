@@ -42,13 +42,18 @@ class BruteForce {
     }
   }
 
+  giveCharset(suite) {
+    for(let i = 0 ; i < this.charset.length; i++) {
+     suite = this.charset[i]
+     console.log(suite)
+    }
+  }
+
 
   testSuite() {
       this.pointSuiteIndex(0);
-      for( let i = 0 ; i < this.charset.length ; i ++){
-        this.suite[this.suiteIndex] = this.charset[i]
-        console.log(this.suite[this.suiteIndex])
-      }
+      this.giveCharset(this.suite[this.suiteIndex])
+        // console.log(this.suite[this.suiteIndex])
       
 
 
@@ -71,5 +76,6 @@ class BruteForce {
 
 let bruteForce = new BruteForce()
 bruteForce.run()
+// bruteForce.giveCharset()
 
 
