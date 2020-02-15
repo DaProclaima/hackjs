@@ -3,6 +3,7 @@ class BruteForce {
 
 	constructor() {
     this.charset = ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
+    this.charsetIndex = 0
     this.countSuiteLength = 0
     this.suite= []
     this.suiteIndex = 0
@@ -45,8 +46,7 @@ class BruteForce {
   testSuite() {
       this.pointSuiteIndex(0);
       for( let i = 0 ; i < this.charset.length ; i ++){
-        console.log(this.pointSuiteIndex(i))
-        this.suite[this.suiteIndex] = this.charset[this.suiteIndex]
+        this.suite[this.suiteIndex] = this.charset[i]
         console.log(this.suite[this.suiteIndex])
       }
       
