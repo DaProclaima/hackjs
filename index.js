@@ -2,49 +2,74 @@
 class BruteForce {
 
 	constructor() {
-		// this.password = password.split("")
-    // console.log(this.password)
     this.charset = ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
-    // this.charset = '123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
+    this.countSuiteLength = 0
+    this.suite= []
+    this.suiteIndex = 0
+
     this.charset = this.charset.split("")
-    console.log(this.charset)
-		this.foundChars
-    this.testSuite
+    
 	}
 
-	guessPsswd() {
-    // this.foundChars = this.password.filter(char => char == "s")
-
-		this.foundChars = this.password.filter(char => {
-      
-		  for( let i = 0; i <= this.charset.length; i++) {
-        console.log(char)
-				return(char !== this.charset[i] ? this.charset : false)
-		  }
-	  })
+  /**
+  * Defines which charset is picked up
+  */
+  loopToCharset(i) {
+    this.charset[i]
   }
 
-  getFoundChars() {
-    return this.foundChars
+  /**
+  * Prepares the suite index onto point
+  */
+  pointSuiteIndex(i) {
+    return this.suiteIndex = i
+  } 
+
+  /**
+  * Once every charset was used in i index, we prepare the new suite length
+  */
+  addOneToSuiteLength() {
+    return this.countSuiteLength++
   }
 
-  showFound(){
-    console.log(`The password was ${this.getFoundChars()}`)
+  /**
+  * Once the new suite length is defined, we apply to Suite so that it has one more slot 
+  */
+  setSuiteLength(){
+    if(this.suite.length < 3) {
+     return this.suite[this.countSuiteLength] 
+    }
   }
 
 
-  testSuite(){
-    this.charset.map(char => {
-      let suite = '';
-      while(suite.length < 8) {
-        suite+=char;
-        console.log(`suite= ${suite}`)
+  testSuite() {
+      this.pointSuiteIndex(0);
+      for( let i = 0 ; i < this.charset.length ; i ++){
+        console.log(this.pointSuiteIndex(i))
+        this.suite[this.suiteIndex] = this.charset[this.suiteIndex]
+        console.log(this.suite[this.suiteIndex])
       }
-    })
+      
+
+
+
+      // for(let i = 0; i < 4; i++) {
+
+      //   for(let j = 0; j < this.charset.length; j++){
+      //     suite = this.charset[j]
+      //     console.log(`suite[${i}] = ${suite}`)
+      //   }
+      // }
+  }
+
+
+
+  run(){
+    this.testSuite()
   }
 }
 
-let bruteForce = new BruteForce("That_is_to_guess1odfodfk")
-// bruteForce.guessPsswd()
-// bruteForce.showFound()
-bruteForce.testSuite()
+let bruteForce = new BruteForce()
+bruteForce.run()
+
+
