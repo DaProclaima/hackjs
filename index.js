@@ -22,7 +22,7 @@ class BruteForce {
     let previousChar
 
     //raises suite.length
-    for( let i = 0; i < 2; i++) {
+    for( let i = 0; i < 5; i++) {
       leftCharset = this.charset.slice()
       while(leftCharset.length > 0){
         // console.log('leftCharset.length = '+leftCharset.length)
