@@ -10,24 +10,13 @@ class BruteForce {
 
 
   testSuite() {
-    for(let i = 0 ; i < 8 ; i++) {
-      for(let j = 0 ; j < this.charset.length; j++) {
-        this.suite[i] = this.charset[j]
+    for(let i = 0 ; i < this.charset.length ; i++) {
+      for(let j = 0 ; j < 8; j++) {
+        this.suite[j] = this.charset[i]
         console.log(this.suite.join(""))
       }
     }   
-
-
-
-      // for(let i = 0; i < 4; i++) {
-
-      //   for(let j = 0; j < this.charset.length; j++){
-      //     suite = this.charset[j]
-      //     console.log(`suite[${i}] = ${suite}`)
-      //   }
-      // }
   }
-
 
 
   run(){
@@ -37,6 +26,5 @@ class BruteForce {
 
 let bruteForce = new BruteForce()
 bruteForce.run()
-// bruteForce.giveCharset()
 
 
