@@ -8,14 +8,22 @@ class BruteForce {
     this.charset = this.charset.split("")
 	}
 
+  defineWeight() {
+
+  }
 
   testSuite() {
-    for(let i = 0 ; i < this.charset.length ; i++) {
-      for(let j = 0 ; j < 8; j++) {
-        this.suite[j] = this.charset[i]
-        console.log(this.suite.join(""))
-      }
-    }   
+    //raise suite.length
+    for( let i = 0; i < 3; i++) {
+// i = 0
+        let previousIndex = i;
+        for( let j = 0; j < this.charset.length; j++) {
+          let combination = this.charset[j]
+          this.suite[i] = combination
+          console.log(this.suite)
+          this.suite[previousIndex] = this.charset[0]
+        }
+    } 
   }
 
 
