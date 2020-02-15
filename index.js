@@ -51,10 +51,11 @@ class BruteForce {
 
 
   testSuite() {
-      this.pointSuiteIndex(0);
+    for(let i = 0 ; i < 8 ; i++) {
+      this.pointSuiteIndex(i);
       this.giveCharset(this.suite[this.suiteIndex])
         // console.log(this.suite[this.suiteIndex])
-      
+    }   
 
 
 
