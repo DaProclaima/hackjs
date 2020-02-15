@@ -15,36 +15,34 @@ class BruteForce {
   testSuite() {
 
     // is used for removing a char to chars set in order to use the next char once one suite index used all combinations with previous char
-    let leftCharset = this.charset
+    let leftCharset 
 
-    let prevCharset
-    // is used to get the char to not again use
-    let charIndex
+    let currentChar
 
-    //raise suite.length
+    let previousChar
+
+    //raises suite.length
     for( let i = 0; i < 2; i++) {
+      leftCharset = this.charset.slice()
+      while(leftCharset.length > 0){
+        // console.log('leftCharset.length = '+leftCharset.length)
+        // console.log('currentChar = '+currentChar)
+        currentChar = leftCharset.shift()
+        this.suite[i] = currentChar
+        // console.log(this.suite)
+        if(this.suite.length > 1) {
+          previousChar = currentChar
+          this.suite[i-1] = previousChar
+          for(let j = 0 ; j < this.charset.length; j++) {
+            this.suite[i] = this.charset[j]
+            console.log(this.suite) 
 
-      for( let j = 0; j < this.charset.length; j++) {
+          }
+        }
+      }
 
-        // charIndex = this.charset.indexOf(j)
-
-        // the letter #i of my suite is the letter #j of leftCharset
-        
-        this.suite[i] = this.charset[j]
-        if(j===0) console.log('this.charset[0] = '+ this.charset[0])
-        if(j===0) console.log(this.charset);  
-        
-        // if my suite has at least one index 
-        if(this.suite[i-1] !== undefined && this.suite[i-1] !== null && this.suite.length > 1) {
-          this.suite[i-1] = prevCharset.join('')
-        } 
-       // console.log(this.suite)
-
-      // when this.charset is fully crossed, then stop looping on it
-      }    
-      prevCharset = leftCharset.splice(0,1 , this.charset[0])
-      // console.log(prevCharset)
     // when max length of suite is reached, stop increasing its length 
+      
     } 
   }
 
