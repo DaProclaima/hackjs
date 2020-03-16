@@ -82,6 +82,7 @@ class BruteForce {
 
 let bruteForce = new BruteForce()
 bruteForce.run()
+//  what would help is knowing the probabitliy of unique combinations according to the number of chars and length of suite 
 
 
 // for( let i = 0; i < 20; i++) {
